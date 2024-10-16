@@ -13,9 +13,10 @@ import lombok.NoArgsConstructor;
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "answer_id")
     private Integer id;
-    @OneToOne(mappedBy = "answer_id")
+    @Column(name = "answer")
     private String answer;
-
-    //TODO: Создать таблицы в БД
+    @OneToOne(mappedBy = "answer")
+    private Question linkedQuestion;
 }
